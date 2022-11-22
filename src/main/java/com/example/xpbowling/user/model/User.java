@@ -1,4 +1,4 @@
-package user.model;
+package com.example.xpbowling.user.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,7 @@ import javax.validation.constraints.Email;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User {
 
     @Id

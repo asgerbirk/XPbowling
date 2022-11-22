@@ -1,4 +1,4 @@
-package reservation.model;
+package com.example.xpbowling.reservation.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,12 +14,22 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @ToString
 @Entity
+
 public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
+    private String name;
+    private String email;
+    private double reservationStart;
+    private double reservationEnd;
+    private int numberOfPeople;
+
+
+
+
 
 
 }

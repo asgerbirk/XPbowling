@@ -1,4 +1,4 @@
-package user.model;
+package com.example.xpbowling.user.model;
 
 public enum UserRole {
     OPERATOR,
