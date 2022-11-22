@@ -1,4 +1,4 @@
-package user.model;
+package reservation.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -6,27 +6,20 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
 @Entity
-public class User {
+public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
-
-    private String name;
-
-    @Email
-    private String email;
-
-    @Enumerated(EnumType.STRING)
-    private UserRole userRole;
-
 
 
 }
