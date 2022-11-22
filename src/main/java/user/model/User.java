@@ -3,7 +3,6 @@ package user.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -11,8 +10,8 @@ import javax.validation.constraints.Email;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
+@Table(name = "USER")
 public class User {
 
     @Id
