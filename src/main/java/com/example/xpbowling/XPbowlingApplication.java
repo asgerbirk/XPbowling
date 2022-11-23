@@ -1,7 +1,11 @@
 package com.example.xpbowling;
 
+import com.example.xpbowling.airhockeyTable.model.AirHockeyTable;
+import com.example.xpbowling.airhockeyTable.repository.AirHockeyTableRepository;
 import com.example.xpbowling.bowlingLane.model.BowlingLane;
 import com.example.xpbowling.bowlingLane.repository.BowlingLaneRepository;
+import com.example.xpbowling.diningTable.model.DiningTable;
+import com.example.xpbowling.diningTable.repository.DiningTableRepository;
 import com.example.xpbowling.equipment.model.*;
 import com.example.xpbowling.equipment.repository.EquipmentRepository;
 import com.example.xpbowling.reservation.model.BowlingReservation;
@@ -26,7 +30,9 @@ public class XPbowlingApplication {
     @Bean
     public CommandLineRunner importData(ReservationRepository reservationRepository,
                                         EquipmentRepository equipmentRepository,
-                                        BowlingLaneRepository bowlingLaneRepository){
+                                        BowlingLaneRepository bowlingLaneRepository,
+                                        AirHockeyTableRepository airHockeyTableRepository,
+                                        DiningTableRepository diningTableRepository){
         return (args -> {
             BowlingReservation reservationbowl1 = new BowlingReservation("Bollamolla", "email", 1200, 1400, 4, 1, 10);
             BowlingReservation reservationbowl2 = new BowlingReservation("Millabolla", "emailena", 1400, 1600, 6, 3, 1, 2, 3);
@@ -86,6 +92,22 @@ public class XPbowlingApplication {
             bowlingLaneList.add(new BowlingLane(23,true));
             bowlingLaneList.add(new BowlingLane(24,true));
             bowlingLaneRepository.saveAll(bowlingLaneList);
+
+            List<AirHockeyTable> airHockeyTableList = new ArrayList<>();
+            airHockeyTableList.add(new AirHockeyTable(1));
+            airHockeyTableList.add(new AirHockeyTable(2));
+            airHockeyTableList.add(new AirHockeyTable(3));
+            airHockeyTableRepository.saveAll(airHockeyTableList);
+
+            List<DiningTable> diningTableList = new ArrayList<>();
+            diningTableList.add(new DiningTable(1));
+            diningTableList.add(new DiningTable(2));
+            diningTableList.add(new DiningTable(3));
+            diningTableList.add(new DiningTable(4));
+            diningTableList.add(new DiningTable(5));
+            diningTableList.add(new DiningTable(6));
+            diningTableRepository.saveAll(diningTableList);
+
 
 
 

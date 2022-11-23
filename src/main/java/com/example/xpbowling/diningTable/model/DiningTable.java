@@ -21,4 +21,7 @@ public class DiningTable {
     private Long id;
     private int tableNum;
 
+    public DiningTable(int tableNum) {
+        this.tableNum = tableNum;
+    }
 }
