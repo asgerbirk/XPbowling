@@ -32,6 +32,18 @@ public class ReservationService {
     public List<Reservation> getAllBowlingReservations(){
         return reservationRepository.findAll().stream().filter(item -> item instanceof BowlingReservation).collect(Collectors.toList());
     }
+    public Reservation createReservation(Reservation reservation){
+        return reservationRepository.save(reservation);
+    }
+
+    public void deleteReservation(Long id){
+        boolean checkIfReservationExists = reservationRepository.existsById(id);
+        if (!checkIfReservationExists){
+            throw new IllegalStateException("does not exists " + id);
+        }
+        reservationRepository.deleteById(id);
+    }
+
 
 
 }

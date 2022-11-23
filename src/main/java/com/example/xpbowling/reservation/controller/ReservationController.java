@@ -4,6 +4,7 @@ package com.example.xpbowling.reservation.controller;
 import com.example.xpbowling.bowlingLane.model.BowlingLane;
 import com.example.xpbowling.reservation.model.Reservation;
 import com.example.xpbowling.reservation.service.ReservationService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +41,16 @@ public class ReservationController {
     @GetMapping ("/bowlingreservations")
     public ResponseEntity<List<Reservation>> getBowlingReservations(){
         return ResponseEntity.ok().body(reservationService.getAllBowlingReservations());
+    }
+    @PostMapping
+    public ResponseEntity<Reservation> createReservation(@Valid @RequestBody Reservation reservation){
+        return ResponseEntity.ok().body(reservationService.createReservation(reservation));
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> deleteReservation(@PathVariable("id") Long id){
+        reservationService.deleteReservation(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
