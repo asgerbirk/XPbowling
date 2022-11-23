@@ -1,15 +1,12 @@
 package com.example.xpbowling.reservation.service;
 
-import com.example.xpbowling.bowlingLane.model.BowlingLane;
-import com.example.xpbowling.bowlingLane.service.BowlingLaneService;
+import com.example.xpbowling.reservation.model.BowlingReservation;
 import com.example.xpbowling.reservation.model.Reservation;
 import com.example.xpbowling.reservation.repository.ReservationRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReservationService {
@@ -32,6 +29,9 @@ public class ReservationService {
         return reservationRepository.save(reservation);
     }
 
+    public List<Reservation> getAllBowlingReservations(){
+        return reservationRepository.findAll().stream().filter(item -> item instanceof BowlingReservation).collect(Collectors.toList());
+    }
 
 
 }

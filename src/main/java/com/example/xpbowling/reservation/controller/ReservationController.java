@@ -37,7 +37,10 @@ public class ReservationController {
         return ResponseEntity.ok().body(reservationService.updateReservation(id, reservation));
     }
 
-
+    @GetMapping ("/bowlingreservations")
+    public ResponseEntity<List<Reservation>> getBowlingReservations(){
+        return ResponseEntity.ok().body(reservationService.getAllBowlingReservations());
+    }
 
 
 }
