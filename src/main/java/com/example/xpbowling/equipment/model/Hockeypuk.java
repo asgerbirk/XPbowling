@@ -17,4 +17,8 @@ public class Hockeypuk extends Equipment{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
+
+    public Hockeypuk(int numOfEntities) {
+        super(numOfEntities);
+    }
 }

@@ -20,5 +20,10 @@ public class Bowlingball extends Equipment {
     @Column(nullable = false)
     private Long id;
 
-    private int size;
+    private int ballSize;
+
+    public Bowlingball(int numOfEntities, int ballSize) {
+        super(numOfEntities);
+        this.ballSize = ballSize;
+    }
 }

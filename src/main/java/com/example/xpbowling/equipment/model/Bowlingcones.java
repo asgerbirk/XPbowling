@@ -19,4 +19,7 @@ public class Bowlingcones extends Equipment{
     @Column(nullable = false)
     private Long id;
 
+    public Bowlingcones(int numOfEntities) {
+        super(numOfEntities);
+    }
 }

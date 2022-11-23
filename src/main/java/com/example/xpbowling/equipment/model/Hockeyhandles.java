@@ -17,4 +17,8 @@ public class Hockeyhandles extends Equipment{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
+
+    public Hockeyhandles(int numOfEntities) {
+        super(numOfEntities);
+    }
 }
