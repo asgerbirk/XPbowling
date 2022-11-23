@@ -97,7 +97,9 @@ public class XPbowlingApplication {
             airHockeyTableList.add(new AirHockeyTable(1));
             airHockeyTableList.add(new AirHockeyTable(2));
             airHockeyTableList.add(new AirHockeyTable(3));
+            airHockeyTableList.add(new AirHockeyTable(4));
             airHockeyTableRepository.saveAll(airHockeyTableList);
+
 
             List<DiningTable> diningTableList = new ArrayList<>();
             diningTableList.add(new DiningTable(1));
