@@ -1,14 +1,11 @@
 package com.example.xpbowling;
 
 import com.example.xpbowling.reservation.repository.ReservationRepository;
-import com.example.xpbowling.user.repository.UserRepository;
+import com.example.xpbowling.login.repository.LoginRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 public class XPbowlingApplication {
@@ -18,7 +15,7 @@ public class XPbowlingApplication {
     }
 
     @Bean
-    public CommandLineRunner importData(ReservationRepository reservationRepo, UserRepository userRepository){
+    public CommandLineRunner importData(ReservationRepository reservationRepo, LoginRepository userRepository){
         return (args -> {
 
 

@@ -1,31 +1,25 @@
-package com.example.xpbowling.user.model;
+package com.example.xpbowling.employee.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 @Entity
-@Table(name = "USERS")
-public class User {
+
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long id;
-
     private String name;
-
-    @Email
     private String email;
-
-    @Enumerated(EnumType.STRING)
-    private UserRole userRole;
-
-
-
+    private EmployeeRole employeeRole;
 }
