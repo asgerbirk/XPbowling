@@ -1,10 +1,8 @@
 package com.example.xpbowling.schedule.model;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
 import javax.persistence.*;
 
 @Getter

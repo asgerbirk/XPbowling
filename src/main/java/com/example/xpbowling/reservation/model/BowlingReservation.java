@@ -11,6 +11,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 public class BowlingReservation extends Reservation{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
