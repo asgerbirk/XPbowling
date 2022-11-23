@@ -25,11 +25,7 @@ public class BowlingLaneService {
     }
 
     public BowlingLane updateBowlingLane(Long id, BowlingLane bowlingLane){
-       BowlingLane newBowlingLane =  bowlingLaneRepository.findById(id).orElseThrow(()->new IllegalStateException("no rider with that id" + id));
-       bowlingLane.setId(newBowlingLane.getId());
-       bowlingLane.setBowlingLaneNumber(newBowlingLane.getBowlingLaneNumber());
-
-      return bowlingLaneRepository.save(newBowlingLane);
+       return bowlingLaneRepository.save(bowlingLane);
     }
 
 }
