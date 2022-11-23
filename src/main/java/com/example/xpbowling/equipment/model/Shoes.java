@@ -17,5 +17,10 @@ public class Shoes extends Equipment{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
-    private int size;
+    private int shoeSize;
+
+    public Shoes(int numOfEntities, int shoeSize) {
+        super(numOfEntities);
+        this.shoeSize = shoeSize;
+    }
 }

@@ -20,4 +20,8 @@ public class Equipment {
     @Column(nullable = false)
     private Long id;
     private int numOfEntities;
+
+    public Equipment(int numOfEntities) {
+        this.numOfEntities = numOfEntities;
+    }
 }
