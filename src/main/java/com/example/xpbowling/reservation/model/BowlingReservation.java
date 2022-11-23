@@ -1,14 +1,18 @@
 package com.example.xpbowling.reservation.model;
 
+import com.example.xpbowling.bowlingLane.model.BowlingLane;
 import lombok.*;
+import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 public class BowlingReservation extends Reservation{
 
@@ -21,6 +25,9 @@ public class BowlingReservation extends Reservation{
     private int laneNum2;
     private int laneNum3;
     private int laneNum4;
+
+    @ManyToMany(mappedBy = "bowlingReservationSet")
+    private List<BowlingLane> bowlingLaneSet = new ArrayList<>();
 
     public BowlingReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int countOfLanes, int laneNum1) {
         super(name, email, reservationStart, reservationEnd, numberOfPeople);
