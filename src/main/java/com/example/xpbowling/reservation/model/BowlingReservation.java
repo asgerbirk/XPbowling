@@ -26,7 +26,7 @@ public class BowlingReservation extends Reservation{
     private int laneNum3;
     private int laneNum4;
 
-    @ManyToMany(mappedBy = "bowlingReservationSet")
+    @ManyToMany(mappedBy = "bowlingReservations")
     private List<BowlingLane> bowlingLaneSet = new ArrayList<>();
 
     public BowlingReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int countOfLanes, int laneNum1) {
