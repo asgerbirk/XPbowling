@@ -30,7 +30,7 @@ public class ReservationService {
     }
 
     public List<Reservation> getAllBowlingReservations(){
-        return reservationRepository.findAll().stream().filter(item -> item instanceof BowlingReservation).collect(Collectors.toList());
+        return reservationRepository.findAll().stream().filter(reservation -> reservation instanceof BowlingReservation).collect(Collectors.toList());
     }
     public Reservation createReservation(Reservation reservation){
         return reservationRepository.save(reservation);
