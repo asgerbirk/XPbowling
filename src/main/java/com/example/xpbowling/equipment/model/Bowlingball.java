@@ -19,5 +19,6 @@ public class Bowlingball extends Equipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
+
     private int size;
 }
