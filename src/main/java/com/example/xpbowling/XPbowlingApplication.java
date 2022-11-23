@@ -123,12 +123,6 @@ public class XPbowlingApplication {
             diningTableRepository.saveAll(diningTableList);
 
 
-
-
-
-
-
-
         });
     }
 
