@@ -18,4 +18,9 @@ public class AirhockeyReservation extends Reservation{
     @Column(nullable = false)
     private Long id;
     private int tableNum;
+
+    public AirhockeyReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int tableNum) {
+        super(name, email, reservationStart, reservationEnd, numberOfPeople);
+        this.tableNum = tableNum;
+    }
 }

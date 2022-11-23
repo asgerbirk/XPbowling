@@ -8,7 +8,9 @@ import com.example.xpbowling.diningTable.model.DiningTable;
 import com.example.xpbowling.diningTable.repository.DiningTableRepository;
 import com.example.xpbowling.equipment.model.*;
 import com.example.xpbowling.equipment.repository.EquipmentRepository;
+import com.example.xpbowling.reservation.model.AirhockeyReservation;
 import com.example.xpbowling.reservation.model.BowlingReservation;
+import com.example.xpbowling.reservation.model.DiningReservation;
 import com.example.xpbowling.reservation.model.Reservation;
 import com.example.xpbowling.reservation.repository.ReservationRepository;
 import com.example.xpbowling.login.repository.LoginRepository;
@@ -39,6 +41,16 @@ public class XPbowlingApplication {
 
             reservationRepository.save(reservationbowl1);
             reservationRepository.save(reservationbowl2);
+
+            AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", 1100, 1200, 2, 2);
+            AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", 1200, 1300, 2, 1);
+            reservationRepository.save(reservationair1);
+            reservationRepository.save(reservationair2);
+
+            DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", 1700, 1900, 6, 2);
+            DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", 1700, 1900, 6, 4);
+            reservationRepository.save(reservationdining1);
+            reservationRepository.save(reservationdining2);
 
             ArrayList<Bowlingball> listOfBowlingballs = new ArrayList<>();
             listOfBowlingballs.add(new Bowlingball(20, 12));

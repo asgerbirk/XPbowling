@@ -18,4 +18,9 @@ public class DiningReservation extends Reservation{
     @Column(nullable = false)
     private Long id;
     private int tableNum;
+
+    public DiningReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int tableNum) {
+        super(name, email, reservationStart, reservationEnd, numberOfPeople);
+        this.tableNum = tableNum;
+    }
 }
