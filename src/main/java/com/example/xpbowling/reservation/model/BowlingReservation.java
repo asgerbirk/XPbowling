@@ -27,13 +27,20 @@ public class BowlingReservation extends Reservation{
     private int laneNum4;
 
     @ManyToMany(mappedBy = "bowlingReservationSet")
-    private List<BowlingLane> bowlingLaneSet = new ArrayList<>();
+    private List<BowlingLane> bowlingLaneSet;
 
     public BowlingReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int countOfLanes, int laneNum1) {
         super(name, email, reservationStart, reservationEnd, numberOfPeople);
         this.countOfLanes = countOfLanes;
         this.laneNum1 = laneNum1;
     }
+
+    public BowlingReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int countOfLanes, List<BowlingLane> bowlingLaneSet) {
+        super(name, email, reservationStart, reservationEnd, numberOfPeople);
+        this.countOfLanes = countOfLanes;
+        this.bowlingLaneSet = bowlingLaneSet;
+    }
+
     public BowlingReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int countOfLanes, int laneNum1, int laneNum2) {
         super(name, email, reservationStart, reservationEnd, numberOfPeople);
         this.countOfLanes = countOfLanes;
