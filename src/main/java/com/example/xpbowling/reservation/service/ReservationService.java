@@ -1,6 +1,8 @@
 package com.example.xpbowling.reservation.service;
 
+import com.example.xpbowling.reservation.model.AirhockeyReservation;
 import com.example.xpbowling.reservation.model.BowlingReservation;
+import com.example.xpbowling.reservation.model.DiningReservation;
 import com.example.xpbowling.reservation.model.Reservation;
 import com.example.xpbowling.reservation.repository.ReservationRepository;
 import org.springframework.stereotype.Service;
@@ -32,9 +34,27 @@ public class ReservationService {
     public List<Reservation> getAllBowlingReservations(){
         return reservationRepository.findAll().stream().filter(reservation -> reservation instanceof BowlingReservation).collect(Collectors.toList());
     }
-    public Reservation createReservation(Reservation reservation){
+
+    public List<Reservation> getAllAirhockeyReservations(){
+        return reservationRepository.findAll().stream().filter(item -> item instanceof AirhockeyReservation).collect(Collectors.toList());
+    }
+
+    public List<Reservation> getAllDiningReservations(){
+        return reservationRepository.findAll().stream().filter(item -> item instanceof DiningReservation).collect(Collectors.toList());
+    }
+
+    public BowlingReservation createBowlingReservation(BowlingReservation reservation){
         return reservationRepository.save(reservation);
     }
+
+    public AirhockeyReservation createAirhockeyReservation(AirhockeyReservation reservation){
+        return reservationRepository.save(reservation);
+    }
+
+    public DiningReservation createDiningReservation(DiningReservation reservation){
+        return reservationRepository.save(reservation);
+    }
+
 
     public void deleteReservation(Long id){
         boolean checkIfReservationExists = reservationRepository.existsById(id);
