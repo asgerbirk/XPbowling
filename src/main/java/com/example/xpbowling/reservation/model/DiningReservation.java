@@ -13,10 +13,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 public class DiningReservation extends Reservation{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long id;
+
     private int tableNum;
 
     public DiningReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int tableNum) {
