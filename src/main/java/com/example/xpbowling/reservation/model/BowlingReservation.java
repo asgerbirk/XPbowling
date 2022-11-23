@@ -16,10 +16,7 @@ import java.util.List;
 @Entity
 public class BowlingReservation extends Reservation{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    private Long id;
+
     private int countOfLanes;
     private int laneNum1;
     private int laneNum2;

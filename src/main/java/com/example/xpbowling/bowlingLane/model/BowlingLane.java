@@ -31,7 +31,7 @@ public class BowlingLane {
             joinColumns = {@JoinColumn(name = "bowling_lane_id")},
             inverseJoinColumns = {@JoinColumn(name = "reservation_id")}
     )
-    private List<BowlingReservation> bowlingReservationSet = new ArrayList<>();
+    private List<BowlingReservation> bowlingReservations = new ArrayList<>();
 
 
     public BowlingLane(int bowlingLaneNumber, boolean suitedForKids) {
