@@ -48,17 +48,20 @@ public class XPbowlingApplication {
             reservationRepository.save(reservationair1);
             reservationRepository.save(reservationair2);
 
-            DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", 1700, 1900, 6, 2);
-            DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", 1700, 1900, 6, 4);
+            DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", LocalTime.of(17,00), LocalTime.of(19,00), 6, 2);
+            DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", LocalTime.of(17,00), LocalTime.of(19, 00), 6, 4);
             reservationRepository.save(reservationdining1);
             reservationRepository.save(reservationdining2);
 
             ArrayList<Bowlingball> listOfBowlingballs = new ArrayList<>();
-            listOfBowlingballs.add(new Bowlingball(20, 12));
-            listOfBowlingballs.add(new Bowlingball(20, 14));
-            listOfBowlingballs.add(new Bowlingball(20, 16));
-            listOfBowlingballs.add(new Bowlingball(20, 18));
-            listOfBowlingballs.add(new Bowlingball(20, 20));
+            listOfBowlingballs.add(new Bowlingball(5, 12, "grønne"));
+            listOfBowlingballs.add(new Bowlingball(5, 12, "yellow"));
+            listOfBowlingballs.add(new Bowlingball(5, 12, "red"));
+            listOfBowlingballs.add(new Bowlingball(5, 12, "blue"));
+            listOfBowlingballs.add(new Bowlingball(20, 14, "grey"));
+            listOfBowlingballs.add(new Bowlingball(20, 16, "black"));
+            listOfBowlingballs.add(new Bowlingball(20, 18, "navyblue"));
+            listOfBowlingballs.add(new Bowlingball(20, 20, "turquoise"));
             equipmentRepository.saveAll(listOfBowlingballs);
 
             Bowlingcones bowlingcones = new Bowlingcones(100);
