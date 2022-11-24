@@ -54,7 +54,7 @@ public class XPbowlingApplication {
             reservationRepository.save(reservationdining2);
 
             ArrayList<Bowlingball> listOfBowlingballs = new ArrayList<>();
-            listOfBowlingballs.add(new Bowlingball(20, 12, "yellow");
+            listOfBowlingballs.add(new Bowlingball(20, 12, "yellow"));
             listOfBowlingballs.add(new Bowlingball(20, 14, "yellow"));
             listOfBowlingballs.add(new Bowlingball(20, 16, "yellow"));
             listOfBowlingballs.add(new Bowlingball(20, 18, "yellow"));
