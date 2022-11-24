@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
@@ -17,8 +18,8 @@ public class AirhockeyReservation extends Reservation{
 
     private int tableNum;
 
-    public AirhockeyReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, int numberOfPeople, int tableNum) {
-        super(name, email, reservationStart, reservationEnd, numberOfPeople);
+    public AirhockeyReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, int tableNum) {
+        super(name, email, reservationStart, reservationEnd, date, numberOfPeople);
         this.tableNum = tableNum;
     }
 }
