@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -16,7 +17,7 @@ public class AirhockeyReservation extends Reservation{
 
     private int tableNum;
 
-    public AirhockeyReservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople, int tableNum) {
+    public AirhockeyReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, int numberOfPeople, int tableNum) {
         super(name, email, reservationStart, reservationEnd, numberOfPeople);
         this.tableNum = tableNum;
     }

@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -21,16 +22,18 @@ public class Reservation {
     private Long id;
     private String name;
     private String email;
-    private double reservationStart;
-    private double reservationEnd;
+    private LocalTime reservationStart;
+    private LocalTime reservationEnd;
     private int numberOfPeople;
 
 
-    public Reservation(String name, String email, double reservationStart, double reservationEnd, int numberOfPeople) {
+    public Reservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, int numberOfPeople) {
         this.name = name;
         this.email = email;
         this.reservationStart = reservationStart;
         this.reservationEnd = reservationEnd;
         this.numberOfPeople = numberOfPeople;
     }
+
+
 }

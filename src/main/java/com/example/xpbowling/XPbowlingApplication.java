@@ -19,6 +19,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,14 +37,14 @@ public class XPbowlingApplication {
                                         AirHockeyTableRepository airHockeyTableRepository,
                                         DiningTableRepository diningTableRepository){
         return (args -> {
-            BowlingReservation reservationbowl1 = new BowlingReservation("Bollamolla", "email", 1200, 1400, 4, 1, 10);
-            BowlingReservation reservationbowl2 = new BowlingReservation("Millabolla", "emailena", 1400, 1600, 6, 3, 1, 2, 3);
+            BowlingReservation reservationbowl1 = new BowlingReservation("Bollamolla", "email", LocalTime.of(12, 0), LocalTime.now(), 4, 1, 10);
+            BowlingReservation reservationbowl2 = new BowlingReservation("Millabolla", "emailena", LocalTime.MIN,LocalTime.now(), 6, 3, 1, 2, 3);
 
             reservationRepository.save(reservationbowl1);
             reservationRepository.save(reservationbowl2);
 
-            AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", 1100, 1200, 2, 2);
-            AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", 1200, 1300, 2, 1);
+            AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", LocalTime.now(), LocalTime.now(), 2, 2);
+            AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", LocalTime.now(), LocalTime.now(), 2, 1);
             reservationRepository.save(reservationair1);
             reservationRepository.save(reservationair2);
 
