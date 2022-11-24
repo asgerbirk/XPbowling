@@ -54,11 +54,11 @@ public class XPbowlingApplication {
             reservationRepository.save(reservationdining2);
 
             ArrayList<Bowlingball> listOfBowlingballs = new ArrayList<>();
-            listOfBowlingballs.add(new Bowlingball(20, 12));
-            listOfBowlingballs.add(new Bowlingball(20, 14));
-            listOfBowlingballs.add(new Bowlingball(20, 16));
-            listOfBowlingballs.add(new Bowlingball(20, 18));
-            listOfBowlingballs.add(new Bowlingball(20, 20));
+            listOfBowlingballs.add(new Bowlingball(20, 12, "yellow");
+            listOfBowlingballs.add(new Bowlingball(20, 14, "yellow"));
+            listOfBowlingballs.add(new Bowlingball(20, 16, "yellow"));
+            listOfBowlingballs.add(new Bowlingball(20, 18, "yellow"));
+            listOfBowlingballs.add(new Bowlingball(20, 20, "yellow"));
             equipmentRepository.saveAll(listOfBowlingballs);
 
             Bowlingcones bowlingcones = new Bowlingcones(100);
