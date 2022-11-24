@@ -28,4 +28,6 @@ public class Bowlingball extends Equipment {
         this.ballSize = ballSize;
         this.ballcolor = ballcolor;
     }
+
+
 }
