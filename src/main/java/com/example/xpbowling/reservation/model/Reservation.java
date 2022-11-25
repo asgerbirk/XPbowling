@@ -23,17 +23,19 @@ public class Reservation {
     private String email;
     private LocalTime reservationStart;
     private LocalTime reservationEnd;
-
     private LocalDate date;
     private int numberOfPeople;
 
+    private boolean isBooked;
 
-    public Reservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople) {
+
+    public Reservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, boolean isBooked) {
         this.name = name;
         this.email = email;
         this.reservationStart = reservationStart;
         this.reservationEnd = reservationEnd;
         this.date = date;
         this.numberOfPeople = numberOfPeople;
+        this.isBooked = isBooked;
     }
 }

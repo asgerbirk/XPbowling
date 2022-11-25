@@ -18,8 +18,8 @@ public class DiningReservation extends Reservation{
 
     private int tableNum;
 
-    public DiningReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, int tableNum) {
-        super(name, email, reservationStart, reservationEnd, date, numberOfPeople);
+    public DiningReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople,boolean isBooked , int tableNum) {
+        super(name, email, reservationStart, reservationEnd, date, numberOfPeople,isBooked);
         this.tableNum = tableNum;
     }
 }

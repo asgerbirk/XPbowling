@@ -7,7 +7,10 @@ import com.example.xpbowling.reservation.model.Reservation;
 import com.example.xpbowling.reservation.repository.ReservationRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,6 +38,10 @@ public class ReservationService {
         return reservationRepository.findAll().stream().filter(reservation -> reservation instanceof BowlingReservation).collect(Collectors.toList());
     }
 
+    public List<Reservation> getAvaliableLanes(){
+        return reservationRepository.findAll().stream().filter(reservation -> !reservation.isBooked()).collect(Collectors.toList());
+    }
+
     public List<Reservation> getAllAirhockeyReservations(){
         return reservationRepository.findAll().stream().filter(item -> item instanceof AirhockeyReservation).collect(Collectors.toList());
     }
@@ -44,7 +51,8 @@ public class ReservationService {
     }
 
     public BowlingReservation createBowlingReservation(BowlingReservation reservation){
-        return reservationRepository.save(reservation);
+       return reservationRepository.save(reservation);
+
     }
 
     public AirhockeyReservation createAirhockeyReservation(AirhockeyReservation reservation){
