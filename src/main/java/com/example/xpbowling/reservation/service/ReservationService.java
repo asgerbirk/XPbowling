@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.ChronoField;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,9 +51,16 @@ public class ReservationService {
     }
 
     public BowlingReservation createBowlingReservation(BowlingReservation reservation){
-       return reservationRepository.save(reservation);
 
+        if (reservation.getReservationStart().equals(LocalTime.parse("12:00:00"))){
+            throw new IllegalStateException("does not exists " + reservation);
+        }else{
+            return reservationRepository.save(reservation);
+        }
     }
+
+
+
 
     public AirhockeyReservation createAirhockeyReservation(AirhockeyReservation reservation){
         return reservationRepository.save(reservation);

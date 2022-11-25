@@ -21,7 +21,7 @@ public class BowlingLaneService {
     }
 
     public BowlingLane findById(Long id){
-        return bowlingLaneRepository.findById(id).orElseThrow(()->new IllegalStateException("no rider with that id" + id));
+        return bowlingLaneRepository.findById(id).orElseThrow(()->new IllegalStateException("no  with that id" + id));
     }
 
     public BowlingLane updateBowlingLane(Long id, BowlingLane bowlingLane){
