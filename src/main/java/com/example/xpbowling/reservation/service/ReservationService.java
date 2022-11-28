@@ -58,13 +58,16 @@ public class ReservationService {
         LocalTime reservation2 = reservation.getReservationEnd();
         LocalDate reservation3 = reservation.getDate();
 
-        if (reservation.getReservationStart() == reservation1 && reservation.getReservationEnd() == reservation2 && reservation.getDate() == reservation3){
+        if (reservation.getReservationStart().equals(reservation1) && reservation.getReservationEnd() == reservation2 && reservation.getDate() == reservation3){
             throw new IllegalStateException("That reservation is already booked! " + reservation + reservation1 + reservation3);
         }else{
             reservation.setBooked(true);
             return reservationRepository.save(reservation);
         }
     }
+
+
+
 
 
 
