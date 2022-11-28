@@ -53,7 +53,7 @@ public class ReservationService {
     public BowlingReservation createBowlingReservation(BowlingReservation reservation){
         //har testet det men det virker sgu ikke
 
-
+/*
         LocalTime reservation1 = reservation.getReservationStart();
         LocalTime reservation2 = reservation.getReservationEnd();
         LocalDate reservation3 = reservation.getDate();
@@ -61,10 +61,12 @@ public class ReservationService {
         if (reservation.getReservationStart().equals(reservation1) && reservation.getReservationEnd() == reservation2 && reservation.getDate() == reservation3){
             throw new IllegalStateException("That reservation is already booked! " + reservation + reservation1 + reservation3);
         }else{
+
+ */
             reservation.setBooked(true);
             return reservationRepository.save(reservation);
         }
-    }
+    
 
 
 
