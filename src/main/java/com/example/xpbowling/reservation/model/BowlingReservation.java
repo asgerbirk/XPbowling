@@ -27,27 +27,27 @@ public class BowlingReservation extends Reservation{
     @ManyToMany(mappedBy = "bowlingReservations")
     private List<BowlingLane> bowlingLaneSet = new ArrayList<>();
 
-    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, boolean isBooked, int countOfLanes, int laneNum1) {
-        super(name, email, reservationStart, reservationEnd, date, numberOfPeople, isBooked);
+    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople , int countOfLanes, int laneNum1) {
+        super(name, email, reservationStart, reservationEnd, date, numberOfPeople);
         this.countOfLanes = countOfLanes;
         this.laneNum1 = laneNum1;
     }
-    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople,boolean isBooked , int countOfLanes, int laneNum1, int laneNum2) {
-        super(name, email, reservationStart, reservationEnd, date, numberOfPeople,isBooked);
+    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople  , int countOfLanes, int laneNum1, int laneNum2) {
+        super(name, email, reservationStart, reservationEnd, date, numberOfPeople);
         this.countOfLanes = countOfLanes;
         this.laneNum1 = laneNum1;
         this.laneNum2 = laneNum2;
     }
-    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople,boolean isBooked ,int countOfLanes, int laneNum1, int laneNum2, int laneNum3) {
-        super(name, email, reservationStart, reservationEnd, date, numberOfPeople, isBooked);
+    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople  ,int countOfLanes, int laneNum1, int laneNum2, int laneNum3) {
+        super(name, email, reservationStart, reservationEnd, date, numberOfPeople);
         this.countOfLanes = countOfLanes;
         this.laneNum1 = laneNum1;
         this.laneNum2 = laneNum2;
         this.laneNum3 = laneNum3;
 
     }
-    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople,boolean isBooked , int countOfLanes, int laneNum1, int laneNum2, int laneNum3, int laneNum4) {
-        super(name, email, reservationStart, reservationEnd, date, numberOfPeople, isBooked);
+    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople  , int countOfLanes, int laneNum1, int laneNum2, int laneNum3, int laneNum4) {
+        super(name, email, reservationStart, reservationEnd, date, numberOfPeople);
         this.countOfLanes = countOfLanes;
         this.laneNum1 = laneNum1;
         this.laneNum2 = laneNum2;

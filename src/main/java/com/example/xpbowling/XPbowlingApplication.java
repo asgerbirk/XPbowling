@@ -38,19 +38,19 @@ public class XPbowlingApplication {
                                         AirHockeyTableRepository airHockeyTableRepository,
                                         DiningTableRepository diningTableRepository){
         return (args -> {
-            BowlingReservation reservationbowl1 = new BowlingReservation("Bollamolla", "email", LocalTime.of(12, 0), LocalTime.now(), LocalDate.now(), 4, true,1, 10);
-            BowlingReservation reservationbowl2 = new BowlingReservation("Millabolla", "emailena", LocalTime.MIN,LocalTime.now(), LocalDate.now(), 6, false,3, 1, 2, 3);
+            BowlingReservation reservationbowl1 = new BowlingReservation("Bollamolla", "email", LocalTime.of(12, 0), LocalTime.now(), LocalDate.now(), 4,1, 10);
+            BowlingReservation reservationbowl2 = new BowlingReservation("Millabolla", "emailena", LocalTime.MIN,LocalTime.now(), LocalDate.now(), 6,3, 1, 2, 3);
 
             reservationRepository.save(reservationbowl1);
             reservationRepository.save(reservationbowl2);
 
-            AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, false, 2);
-            AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, false, 1);
+            AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 2);
+            AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 1);
             reservationRepository.save(reservationair1);
             reservationRepository.save(reservationair2);
 
-            DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", LocalTime.of(17,00), LocalTime.of(19,00), LocalDate.now(), 6, false, 2);
-            DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", LocalTime.of(17, 0), LocalTime.of(19, 00), LocalDate.now(),  6, false, 4);
+            DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", LocalTime.of(17,00), LocalTime.of(19,00), LocalDate.now(), 6, 2);
+            DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", LocalTime.of(17, 0), LocalTime.of(19, 00), LocalDate.now(),  6, 4);
             reservationRepository.save(reservationdining1);
             reservationRepository.save(reservationdining2);
 

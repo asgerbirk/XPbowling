@@ -38,9 +38,6 @@ public class ReservationService {
         return reservationRepository.findAll().stream().filter(reservation -> reservation instanceof BowlingReservation).collect(Collectors.toList());
     }
 
-    public List<Reservation> getAvaliableLanes(){
-        return reservationRepository.findAll().stream().filter(reservation -> !reservation.isBooked()).collect(Collectors.toList());
-    }
 
     public List<Reservation> getAllAirhockeyReservations(){
         return reservationRepository.findAll().stream().filter(item -> item instanceof AirhockeyReservation).collect(Collectors.toList());
@@ -63,7 +60,6 @@ public class ReservationService {
         }else{
 
  */
-            reservation.setBooked(true);
             return reservationRepository.save(reservation);
         }
     

@@ -35,10 +35,6 @@ public class ReservationController {
         return ResponseEntity.ok().body(reservationService.findById(id));
     }
 
-    @GetMapping("/avaliable")
-    public ResponseEntity<List<Reservation>> findAvaliableBowlingLanes(){
-        return ResponseEntity.ok().body(reservationService.getAvaliableLanes());
-    }
 
     @PutMapping ("/{id}")
     ResponseEntity<Reservation> update(@PathVariable Long id, @Valid @RequestBody Reservation reservation){
