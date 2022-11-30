@@ -98,10 +98,12 @@ public class ReservationService {
 
 
     public AirhockeyReservation createAirhockeyReservation(AirhockeyReservation reservation){
+        reservation.setType(ReservationType.AIRHOCKEY.name());
         return reservationRepository.save(reservation);
     }
 
     public DiningReservation createDiningReservation(DiningReservation reservation){
+        reservation.setType(ReservationType.SPISNING.name());
         return reservationRepository.save(reservation);
     }
 

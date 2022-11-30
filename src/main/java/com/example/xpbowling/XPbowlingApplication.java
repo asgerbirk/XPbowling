@@ -24,8 +24,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.xpbowling.reservation.model.ReservationType.BOWLING;
-import static com.example.xpbowling.reservation.model.ReservationType.SPISNING;
+import static com.example.xpbowling.reservation.model.ReservationType.*;
 
 @SpringBootApplication
 public class XPbowlingApplication {
@@ -51,11 +50,15 @@ public class XPbowlingApplication {
 
             AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 2);
             AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 1);
+            reservationair1.setType(AIRHOCKEY.name());
+            reservationair2.setType(AIRHOCKEY.name());
             reservationRepository.save(reservationair1);
             reservationRepository.save(reservationair2);
 
             DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", LocalTime.of(17,00), LocalTime.of(19,00), LocalDate.now(), 6, 2);
             DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", LocalTime.of(17, 0), LocalTime.of(19, 00), LocalDate.now(),  6, 4);
+            reservationdining1.setType(SPISNING.name());
+            reservationdining2.setType(SPISNING.name());
             reservationRepository.save(reservationdining1);
             reservationRepository.save(reservationdining2);
 
