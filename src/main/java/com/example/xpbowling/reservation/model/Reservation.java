@@ -27,8 +27,6 @@ public class Reservation {
     private int numberOfPeople;
 
 
-
-
     public Reservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople) {
         this.name = name;
         this.email = email;

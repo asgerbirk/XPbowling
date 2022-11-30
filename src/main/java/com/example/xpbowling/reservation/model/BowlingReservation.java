@@ -24,6 +24,8 @@ public class BowlingReservation extends Reservation{
     private int laneNum3;
     private int laneNum4;
 
+    private String type;
+
     @ManyToMany(mappedBy = "bowlingReservations")
     private List<BowlingLane> bowlingLaneSet = new ArrayList<>();
 
