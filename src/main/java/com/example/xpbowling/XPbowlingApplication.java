@@ -12,6 +12,9 @@ import com.example.xpbowling.reservation.model.AirhockeyReservation;
 import com.example.xpbowling.reservation.model.BowlingReservation;
 import com.example.xpbowling.reservation.model.DiningReservation;
 import com.example.xpbowling.reservation.model.Reservation;
+import com.example.xpbowling.reservation.repository.AirhockeyRepository;
+import com.example.xpbowling.reservation.repository.BowlingRepository;
+import com.example.xpbowling.reservation.repository.DiningRepository;
 import com.example.xpbowling.reservation.repository.ReservationRepository;
 import com.example.xpbowling.login.repository.LoginRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -35,6 +38,9 @@ public class XPbowlingApplication {
 
     @Bean
     public CommandLineRunner importData(ReservationRepository reservationRepository,
+                                        BowlingRepository bowlingRepository,
+                                        DiningRepository diningRepository,
+                                        AirhockeyRepository airhockeyRepository,
                                         EquipmentRepository equipmentRepository,
                                         BowlingLaneRepository bowlingLaneRepository,
                                         AirHockeyTableRepository airHockeyTableRepository,
@@ -45,22 +51,22 @@ public class XPbowlingApplication {
             BowlingReservation reservationbowl2 = new BowlingReservation("Millabolla", "emailena", LocalTime.MIN,LocalTime.now(), LocalDate.now(), 6, 3, 1, 2, 3);
             reservationbowl2.setType(BOWLING.name());
 
-            reservationRepository.save(reservationbowl1);
-            reservationRepository.save(reservationbowl2);
+            bowlingRepository.save(reservationbowl1);
+            bowlingRepository.save(reservationbowl2);
 
             AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 2);
             AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 1);
             reservationair1.setType(AIRHOCKEY.name());
             reservationair2.setType(AIRHOCKEY.name());
-            reservationRepository.save(reservationair1);
-            reservationRepository.save(reservationair2);
+            airhockeyRepository.save(reservationair1);
+            airhockeyRepository.save(reservationair2);
 
             DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", LocalTime.of(17,00), LocalTime.of(19,00), LocalDate.now(), 6, 2);
             DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", LocalTime.of(17, 0), LocalTime.of(19, 00), LocalDate.now(),  6, 4);
             reservationdining1.setType(SPISNING.name());
             reservationdining2.setType(SPISNING.name());
-            reservationRepository.save(reservationdining1);
-            reservationRepository.save(reservationdining2);
+            diningRepository.save(reservationdining1);
+            diningRepository.save(reservationdining2);
 
             ArrayList<Bowlingball> listOfBowlingballs = new ArrayList<>();
             listOfBowlingballs.add(new Bowlingball(20, 12, "yellow"));
