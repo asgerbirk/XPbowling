@@ -58,8 +58,8 @@ public class XPbowlingApplication {
 
             AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 2);
             AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 1);
-            reservationair1.setType(AIRHOCKEY.name());
-            reservationair2.setType(AIRHOCKEY.name());
+            //reservationair1.setType(AIRHOCKEY.name());
+            //reservationair2.setType(AIRHOCKEY.name());
             airhockeyRepository.save(reservationair1);
             airhockeyRepository.save(reservationair2);
 
