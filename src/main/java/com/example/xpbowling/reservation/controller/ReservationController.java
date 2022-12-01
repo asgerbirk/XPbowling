@@ -38,7 +38,7 @@ public class ReservationController {
 
     @PutMapping ("/{id}")
     ResponseEntity<Reservation> update(@PathVariable Long id, @Valid @RequestBody Reservation reservation){
-        return ResponseEntity.ok().body(reservationService.updateReservation(id, reservation));
+        return ResponseEntity.ok().body(reservationService.updateReservation(id,reservation));
     }
 
     @GetMapping ("/bowlingreservations")
