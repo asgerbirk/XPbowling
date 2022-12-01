@@ -13,5 +13,4 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     public List<Reservation> findReservationByDate(LocalDate date);
     public Reservation findByEmail(String email);
 
-
 }

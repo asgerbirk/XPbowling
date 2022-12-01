@@ -1,23 +1,28 @@
 package com.example.xpbowling.reservation.service;
 
 import com.example.xpbowling.reservation.model.*;
+import com.example.xpbowling.reservation.repository.AirhockeyRepository;
+import com.example.xpbowling.reservation.repository.BowlingRepository;
+import com.example.xpbowling.reservation.repository.DiningRepository;
 import com.example.xpbowling.reservation.repository.ReservationRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class ReservationService {
 
     private final ReservationRepository reservationRepository;
+    private final AirhockeyRepository airhockeyRepository;
+    private final DiningRepository diningRepository;
+    private final BowlingRepository bowlingRepository;
 
-    public ReservationService(ReservationRepository reservationRepository) {
+    public ReservationService(ReservationRepository reservationRepository, AirhockeyRepository airhockeyRepository, DiningRepository diningRepository, BowlingRepository bowlingRepository) {
         this.reservationRepository = reservationRepository;
+        this.airhockeyRepository = airhockeyRepository;
+        this.diningRepository = diningRepository;
+        this.bowlingRepository = bowlingRepository;
     }
 
     public List<Reservation> getAllReservations(){
@@ -32,6 +37,7 @@ public class ReservationService {
         return reservationRepository.save(reservation);
     }
 
+    /*
     public List<Reservation> getAllBowlingReservations(){
         return reservationRepository.findAll().stream().filter(reservation -> reservation instanceof BowlingReservation).collect(Collectors.toList());
     }
@@ -44,10 +50,11 @@ public class ReservationService {
     public List<Reservation> getAllDiningReservations(){
         return reservationRepository.findAll().stream().filter(item -> item instanceof DiningReservation).collect(Collectors.toList());
     }
+     */
 
     public BowlingReservation createBowlingReservation(BowlingReservation reservation){
         //har testet det men det virker sgu ikke
-
+        //Vi skal prøve at hive de specifikke tidspunkter/datoer ud af databasen. Hvis de findes, så laver vi en fejl, og ellers opretter vi dem.
 /*
         LocalTime reservation1 = reservation.getReservationStart();
         LocalTime reservation2 = reservation.getReservationEnd();

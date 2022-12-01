@@ -12,7 +12,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @ToString
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Reservation {
 
     @Id
