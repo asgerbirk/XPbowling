@@ -35,9 +35,20 @@ public class BowlingReservation{
     @Enumerated(EnumType.STRING)
     private ReservationType reservationType;
 
-    @ManyToMany(mappedBy = "bowlingReservations")
-    private List<BowlingLane> bowlingLaneSet = new ArrayList<>();
 
+
+
+    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, int countOfLanes, int laneNumber, ReservationType reservationType) {
+        this.name = name;
+        this.email = email;
+        this.reservationStart = reservationStart;
+        this.reservationEnd = reservationEnd;
+        this.date = date;
+        this.numberOfPeople = numberOfPeople;
+        this.countOfLanes = countOfLanes;
+        this.laneNumber = laneNumber;
+        this.reservationType = reservationType;
+    }
 
     public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, int countOfLanes, int laneNumber) {
         this.name = name;
@@ -48,7 +59,5 @@ public class BowlingReservation{
         this.numberOfPeople = numberOfPeople;
         this.countOfLanes = countOfLanes;
         this.laneNumber = laneNumber;
-
-
     }
 }

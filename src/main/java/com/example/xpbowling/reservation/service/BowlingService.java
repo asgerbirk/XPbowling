@@ -1,6 +1,7 @@
 package com.example.xpbowling.reservation.service;
 
 import com.example.xpbowling.reservation.model.BowlingReservation;
+import com.example.xpbowling.reservation.model.ReservationType;
 import com.example.xpbowling.reservation.repository.BowlingRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,11 @@ public class BowlingService {
 
     public BowlingReservation findById(Long id){
         return bowlingRepository.findById(id).orElseThrow(() -> new IllegalStateException("Fandt ingen reservation med det ID"));
+    }
+
+    public BowlingReservation create(BowlingReservation bowlingReservation){
+        bowlingReservation.setReservationType(ReservationType.BOWLING);
+        return bowlingRepository.save(bowlingReservation);
     }
 
     public BowlingReservation updateReservation (Long id, BowlingReservation bowlingReservation){

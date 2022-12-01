@@ -36,55 +36,6 @@ public class EquipmentController {
         return ResponseEntity.ok().body(equipmentService.updateEquipment(id, equipment));
     }
 
-    @GetMapping("/bowlingball")
-    public ResponseEntity<List<Equipment>> getBowlingballs(){
-        return ResponseEntity.ok().body(equipmentService.getAllBowlingballs());
-    }
-
-    @GetMapping("/bowlingcone")
-    public ResponseEntity<List<Equipment>> getAllBowlingcones(){
-        return ResponseEntity.ok().body(equipmentService.getAllBowlingcones());
-    }
-
-    @GetMapping("/hockeyhandle")
-    public ResponseEntity<List<Equipment>> getAllHockeyhandles(){
-        return ResponseEntity.ok().body(equipmentService.getAllHockeyhandles());
-    }
-
-    @GetMapping("/hockeypuk")
-    public ResponseEntity<List<Equipment>> getAllHockeypuks(){
-        return ResponseEntity.ok().body(equipmentService.getAllHockeypuks());
-    }
-
-    @GetMapping("/shoes")
-    public ResponseEntity<List<Equipment>> getAllShoes(){
-        return ResponseEntity.ok().body(equipmentService.getAllShoes());
-    }
-
-    @PostMapping("/bowlingball")
-    public ResponseEntity<Bowlingball> createBowlingball(@RequestBody Bowlingball equipment){
-        return ResponseEntity.ok().body(equipmentService.createBowlingball(equipment));
-    }
-
-    @PostMapping("/bowlingcone")
-    public ResponseEntity<Bowlingcones> createBowlingcone(@RequestBody Bowlingcones equipment){
-        return ResponseEntity.ok().body(equipmentService.createBowlingcones(equipment));
-    }
-
-    @PostMapping("/hockeyhandle")
-    public ResponseEntity<Hockeyhandles> createHockeyhandle(@RequestBody Hockeyhandles equipment){
-        return ResponseEntity.ok().body(equipmentService.createHockeyhandles(equipment));
-    }
-
-    @PostMapping("/hockeypuk")
-    public ResponseEntity<Hockeypuk> createHockeypuk(@RequestBody Hockeypuk equipment){
-        return ResponseEntity.ok().body(equipmentService.createHockeypuk(equipment));
-    }
-
-    @PostMapping("/shoes")
-    public ResponseEntity<Shoes> create(@RequestBody Shoes equipment){
-        return ResponseEntity.ok().body(equipmentService.createShoes(equipment));
-    }
 
     @DeleteMapping("{id}")
     public ResponseEntity<?> deleteEquipment(@PathVariable("id") Long id){

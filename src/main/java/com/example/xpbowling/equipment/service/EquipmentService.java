@@ -25,46 +25,6 @@ public class EquipmentService {
         return equipmentRepository.findById(id).orElseThrow(() -> new IllegalStateException("no equipment with that id " + id));
     }
 
-    public List<Equipment> getAllBowlingballs(){
-        return equipmentRepository.findAll().stream().filter(equipment -> equipment instanceof Bowlingball).collect(Collectors.toList());
-    }
-
-    public List<Equipment> getAllBowlingcones(){
-        return equipmentRepository.findAll().stream().filter(equipment -> equipment instanceof Bowlingcones).collect(Collectors.toList());
-    }
-
-    public List<Equipment> getAllHockeyhandles(){
-        return equipmentRepository.findAll().stream().filter(equipment -> equipment instanceof Hockeyhandles).collect(Collectors.toList());
-    }
-
-    public List<Equipment> getAllHockeypuks(){
-        return equipmentRepository.findAll().stream().filter(equipment -> equipment instanceof Hockeypuk).collect(Collectors.toList());
-    }
-
-    public List<Equipment> getAllShoes(){
-        return equipmentRepository.findAll().stream().filter(equipment -> equipment instanceof Shoes).collect(Collectors.toList());
-    }
-
-    public Bowlingball createBowlingball(Bowlingball equipment){
-        return equipmentRepository.save(equipment);
-    }
-
-    public Bowlingcones createBowlingcones(Bowlingcones equipment){
-        return equipmentRepository.save(equipment);
-    }
-
-    public Hockeyhandles createHockeyhandles(Hockeyhandles equipment){
-        return equipmentRepository.save(equipment);
-    }
-
-    public Hockeypuk createHockeypuk(Hockeypuk equipment){
-        return equipmentRepository.save(equipment);
-    }
-
-    public Shoes createShoes(Shoes equipment){
-        return equipmentRepository.save(equipment);
-    }
-
     public void deleteEquipment(Long id){
         boolean checkIfEquipmentExists = equipmentRepository.existsById(id);
         if(!checkIfEquipmentExists){

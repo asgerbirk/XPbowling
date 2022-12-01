@@ -12,16 +12,27 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 public class Equipment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
-    private int numOfEntities;
+    @Enumerated(EnumType.STRING)
+    private EquipmentType equipmentType;
+    private int number;
+    private int size;
+    private String color;
 
-    public Equipment(int numOfEntities) {
-        this.numOfEntities = numOfEntities;
+    public Equipment(EquipmentType equipmentType, int number, int size, String color) {
+        this.equipmentType = equipmentType;
+        this.number = number;
+        this.size = size;
+        this.color = color;
     }
 }
+
+
+
+

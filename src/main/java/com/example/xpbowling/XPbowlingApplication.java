@@ -11,12 +11,10 @@ import com.example.xpbowling.equipment.repository.EquipmentRepository;
 import com.example.xpbowling.reservation.model.AirhockeyReservation;
 import com.example.xpbowling.reservation.model.BowlingReservation;
 import com.example.xpbowling.reservation.model.DiningReservation;
-import com.example.xpbowling.reservation.model.Reservation;
 import com.example.xpbowling.reservation.repository.AirhockeyRepository;
 import com.example.xpbowling.reservation.repository.BowlingRepository;
 import com.example.xpbowling.reservation.repository.DiningRepository;
 import com.example.xpbowling.reservation.repository.ReservationRepository;
-import com.example.xpbowling.login.repository.LoginRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,6 +25,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.xpbowling.equipment.model.EquipmentType.*;
 import static com.example.xpbowling.reservation.model.ReservationType.*;
 
 @SpringBootApplication
@@ -47,9 +46,9 @@ public class XPbowlingApplication {
                                         DiningTableRepository diningTableRepository){
         return (args -> {
             final List<BowlingReservation> allReservations = new ArrayList<>();
-            allReservations.add(new BowlingReservation("Bollamolla", "email", LocalTime.of(12, 0), LocalTime.of(13, 0), LocalDate.now(), 4, 4,3));
-            allReservations.add(new BowlingReservation("meerwaldt", "asdasdasa", LocalTime.of(18, 0), LocalTime.of(19, 0), LocalDate.now(), 4, 4,3));
-            allReservations.add(new BowlingReservation("smash", "dasdas", LocalTime.of(14, 0), LocalTime.of(15, 0), LocalDate.now(), 4, 4,3));
+            allReservations.add(new BowlingReservation("Bollamolla", "email", LocalTime.of(12, 0), LocalTime.of(13, 0), LocalDate.now(), 4, 4,3,BOWLING));
+            allReservations.add(new BowlingReservation("meerwaldt", "asdasdasa", LocalTime.of(18, 0), LocalTime.of(19, 0), LocalDate.now(), 4, 4,3,BOWLING));
+            allReservations.add(new BowlingReservation("smash", "dasdas", LocalTime.of(14, 0), LocalTime.of(15, 0), LocalDate.now(), 4, 4,3,BOWLING));
             bowlingRepository.saveAll(allReservations);
 
 
@@ -70,30 +69,66 @@ public class XPbowlingApplication {
             diningRepository.save(reservationdining1);
             diningRepository.save(reservationdining2);
 
-            ArrayList<Bowlingball> listOfBowlingballs = new ArrayList<>();
-            listOfBowlingballs.add(new Bowlingball(20, 12, "yellow"));
-            listOfBowlingballs.add(new Bowlingball(20, 14, "yellow"));
-            listOfBowlingballs.add(new Bowlingball(20, 16, "yellow"));
-            listOfBowlingballs.add(new Bowlingball(20, 18, "yellow"));
-            listOfBowlingballs.add(new Bowlingball(20, 20, "yellow"));
-            equipmentRepository.saveAll(listOfBowlingballs);
+            final List<Equipment> equipmentList = new ArrayList<>();
 
-            Bowlingcones bowlingcones = new Bowlingcones(100);
-            equipmentRepository.save(bowlingcones);
+            equipmentList.add(new Equipment(BOWLINGBALL, 10, 10,"yellow"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 10, 11,"yellow"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 10, 12,"yellow"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 25, 7,"blue"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 25, 8,"blue"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 22, 12,"green"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 22, 13,"green"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 35, 14,"white"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 35, 15,"white"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 12, 5,"brown"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 12, 6,"brown"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 45, 16,"purple"));
+            equipmentList.add(new Equipment(BOWLINGBALL, 45, 17,"purple"));
 
-            Hockeyhandles hockeyhandles = new Hockeyhandles(30);
-            equipmentRepository.save(hockeyhandles);
+            equipmentList.add(new Equipment(BOWLINGCONES, 45, 1,"white"));
 
-            Hockeypuk hockeypuks = new Hockeypuk(16);
-            equipmentRepository.save(hockeypuks);
+            equipmentList.add(new Equipment(HOCKEYPUK, 10, 1,"white"));
 
-            ArrayList<Shoes> listOfShoes = new ArrayList<>();
-            listOfShoes.add(new Shoes(5, 30));
-            listOfShoes.add(new Shoes(5, 34));
-            listOfShoes.add(new Shoes(5, 38));
-            listOfShoes.add(new Shoes(5, 42));
-            listOfShoes.add(new Shoes(5, 46));
-            equipmentRepository.saveAll(listOfShoes);
+            equipmentList.add(new Equipment(SHOES, 4, 35,"white"));
+            equipmentList.add(new Equipment(SHOES, 5, 36,"white"));
+            equipmentList.add(new Equipment(SHOES, 7, 37,"white"));
+            equipmentList.add(new Equipment(SHOES, 8, 38,"white"));
+            equipmentList.add(new Equipment(SHOES, 10, 39,"white"));
+            equipmentList.add(new Equipment(SHOES, 12, 40,"white"));
+            equipmentList.add(new Equipment(SHOES, 15, 41,"white"));
+            equipmentList.add(new Equipment(SHOES, 20, 42,"white"));
+            equipmentList.add(new Equipment(SHOES, 33, 43,"white"));
+            equipmentList.add(new Equipment(SHOES, 36, 44,"white"));
+            equipmentList.add(new Equipment(SHOES, 12, 45,"white"));
+            equipmentList.add(new Equipment(SHOES, 10, 46,"white"));
+            equipmentList.add(new Equipment(SHOES, 10, 47,"white"));
+            equipmentList.add(new Equipment(SHOES, 12, 48,"white"));
+
+            equipmentList.add(new Equipment(SHOES, 4, 35,"black"));
+            equipmentList.add(new Equipment(SHOES, 5, 36,"black"));
+            equipmentList.add(new Equipment(SHOES, 7, 37,"black"));
+            equipmentList.add(new Equipment(SHOES, 8, 38,"black"));
+            equipmentList.add(new Equipment(SHOES, 10, 39,"black"));
+            equipmentList.add(new Equipment(SHOES, 12, 40,"black"));
+            equipmentList.add(new Equipment(SHOES, 15, 41,"black"));
+            equipmentList.add(new Equipment(SHOES, 20, 42,"black"));
+            equipmentList.add(new Equipment(SHOES, 33, 43,"black"));
+            equipmentList.add(new Equipment(SHOES, 36, 44,"black"));
+            equipmentList.add(new Equipment(SHOES, 12, 45,"black"));
+            equipmentList.add(new Equipment(SHOES, 10, 46,"black"));
+            equipmentList.add(new Equipment(SHOES, 10, 47,"black"));
+            equipmentList.add(new Equipment(SHOES, 12, 48,"black"));
+            equipmentRepository.saveAll(equipmentList);
+
+
+
+
+
+
+
+
+
+
 
 
             List<BowlingLane> bowlingLaneList = new ArrayList<>();

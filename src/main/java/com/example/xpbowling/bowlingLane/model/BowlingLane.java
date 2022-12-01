@@ -26,12 +26,7 @@ public class BowlingLane {
 
     private boolean suitedForKids;
 
-    @ManyToMany
-    @JoinTable(name = "lane_reservation",
-            joinColumns = {@JoinColumn(name = "bowling_lane_id")},
-            inverseJoinColumns = {@JoinColumn(name = "reservation_id")}
-    )
-    private List<BowlingReservation> bowlingReservations = new ArrayList<>();
+
 
 
     public BowlingLane(int bowlingLaneNumber, boolean suitedForKids) {
