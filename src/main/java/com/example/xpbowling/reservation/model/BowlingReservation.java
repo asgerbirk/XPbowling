@@ -39,7 +39,7 @@ public class BowlingReservation{
     private List<BowlingLane> bowlingLaneSet = new ArrayList<>();
 
 
-    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, int countOfLanes, int laneNumber, ReservationType reservationType, List<BowlingLane> bowlingLaneSet) {
+    public BowlingReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, int countOfLanes, int laneNumber) {
         this.name = name;
         this.email = email;
         this.reservationStart = reservationStart;
@@ -48,7 +48,7 @@ public class BowlingReservation{
         this.numberOfPeople = numberOfPeople;
         this.countOfLanes = countOfLanes;
         this.laneNumber = laneNumber;
-        this.reservationType = reservationType;
-        this.bowlingLaneSet = bowlingLaneSet;
+
+
     }
 }

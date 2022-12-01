@@ -46,13 +46,15 @@ public class XPbowlingApplication {
                                         AirHockeyTableRepository airHockeyTableRepository,
                                         DiningTableRepository diningTableRepository){
         return (args -> {
-            BowlingReservation reservationbowl1 = new BowlingReservation("Bollamolla", "email", LocalTime.of(12, 0), LocalTime.of(13,00), LocalDate.now(), 4, 1,1);
-            reservationbowl1.setType(BOWLING.name());
-            BowlingReservation reservationbowl2 = new BowlingReservation("Millabolla", "emailena", LocalTime.MIN,LocalTime.now(), LocalDate.now(), 6, 3, 1, 2, 3);
-            reservationbowl2.setType(BOWLING.name());
+            final List<BowlingReservation> allReservations = new ArrayList<>();
+            allReservations.add(new BowlingReservation("Bollamolla", "email", LocalTime.of(12, 0), LocalTime.of(13, 0), LocalDate.now(), 4, 4,3));
+            allReservations.add(new BowlingReservation("meerwaldt", "asdasdasa", LocalTime.of(18, 0), LocalTime.of(19, 0), LocalDate.now(), 4, 4,3));
+            allReservations.add(new BowlingReservation("smash", "dasdas", LocalTime.of(14, 0), LocalTime.of(15, 0), LocalDate.now(), 4, 4,3));
+            bowlingRepository.saveAll(allReservations);
 
-            bowlingRepository.save(reservationbowl1);
-            bowlingRepository.save(reservationbowl2);
+
+
+
 
             AirhockeyReservation reservationair1 = new AirhockeyReservation("bonnievilhockey", "maildan", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 2);
             AirhockeyReservation reservationair2 = new AirhockeyReservation("lonnievilhockey", "mailban", LocalTime.now(), LocalTime.now(), LocalDate.now(), 2, 1);

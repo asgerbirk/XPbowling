@@ -80,9 +80,12 @@ public class ReservationService {
             reservation.setBooked(true);
         }else{
  */
+
         reservation.setType(ReservationType.BOWLING.name());
             return reservationRepository.save(reservation);
         }
+
+
 
 
 
