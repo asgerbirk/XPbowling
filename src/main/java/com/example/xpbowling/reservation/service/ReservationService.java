@@ -25,11 +25,20 @@ public class ReservationService {
     }
 
     public Reservation findById(Long id) {
-        return reservationRepository.findById(id).orElseThrow(() -> new IllegalStateException("no rider with that id" + id));
+        return reservationRepository.findById(id).orElseThrow(() -> new IllegalStateException("no reservation with that id" + id));
     }
 
-    public Reservation updateReservation(Long id, Reservation reservation){
-        return reservationRepository.save(reservation);
+    public Reservation updateReservation(Long id, Reservation newReservation){
+
+        return reservationRepository.findById(id).map(reservation -> {
+            reservation.setName(newReservation.getName());
+            reservation.setEmail(newReservation.getEmail());
+            reservation.setReservationStart(newReservation.getReservationStart());
+            reservation.setReservationEnd(newReservation.getReservationEnd());
+            reservation.setDate(newReservation.getDate());
+            reservation.setNumberOfPeople(newReservation.getNumberOfPeople());
+            return reservationRepository.save(newReservation);
+        }).orElseThrow(() -> new IllegalStateException("no reservation with that id" + id));
     }
 
     public List<Reservation> getAllBowlingReservations(){
