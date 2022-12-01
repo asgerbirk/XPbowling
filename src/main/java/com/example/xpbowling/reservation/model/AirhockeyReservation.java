@@ -29,7 +29,7 @@ public class AirhockeyReservation{
     private int numberOfPeople;
     private int tableNum;
 
-    private String type;
+    private ReservationType type;
 
     public AirhockeyReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, int tableNum) {
         this.name = name;
