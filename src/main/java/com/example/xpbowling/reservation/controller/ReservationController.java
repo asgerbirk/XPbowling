@@ -58,6 +58,7 @@ public class ReservationController {
     }
      */
 
+    /*
     @PostMapping("/bowling") //bowling resrevation parametre her til at kalde fra den rigtige submit knap
     public ResponseEntity<BowlingReservation> createBowlingReservation(@RequestBody BowlingReservation reservation){
         return ResponseEntity.ok().body(reservationService.createBowlingReservation(reservation));
@@ -78,6 +79,8 @@ public class ReservationController {
         reservationService.deleteReservation(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+     */
 
 
 }
