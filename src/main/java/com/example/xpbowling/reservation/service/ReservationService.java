@@ -61,6 +61,7 @@ public class ReservationService {
     }
      */
 
+    /*
     public BowlingReservation createBowlingReservation(BowlingReservation reservation){
         //har testet det men det virker sgu ikke
         //Vi skal prøve at hive de specifikke tidspunkter/datoer ud af databasen. Hvis de findes, så laver vi en fejl, og ellers opretter vi dem.
@@ -80,13 +81,15 @@ public class ReservationService {
             reservation.setBooked(true);
         }else{
  */
+        /*
         reservation.setType(ReservationType.BOWLING.name());
             return reservationRepository.save(reservation);
         }
+         */
 
 
 
-
+        /*
 
     public boolean checkReservationAvailability(BowlingReservation reservation) {
         List<Reservation> tempList = getAllBowlingReservations();
@@ -133,5 +136,9 @@ public class ReservationService {
     }
 
 
+         */
+
 
 }
+
+
