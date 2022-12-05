@@ -2,6 +2,8 @@ package com.example.xpbowling;
 
 import com.example.xpbowling.airhockeyTable.model.AirHockeyTable;
 import com.example.xpbowling.airhockeyTable.repository.AirHockeyTableRepository;
+import com.example.xpbowling.beverages.model.Beverages;
+import com.example.xpbowling.beverages.repository.BeverageRepository;
 import com.example.xpbowling.bowlingLane.model.BowlingLane;
 import com.example.xpbowling.bowlingLane.repository.BowlingLaneRepository;
 import com.example.xpbowling.diningTable.model.DiningTable;
@@ -14,7 +16,6 @@ import com.example.xpbowling.reservation.model.DiningReservation;
 import com.example.xpbowling.reservation.repository.AirhockeyRepository;
 import com.example.xpbowling.reservation.repository.BowlingRepository;
 import com.example.xpbowling.reservation.repository.DiningRepository;
-import com.example.xpbowling.reservation.repository.ReservationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -36,14 +37,14 @@ public class XPbowlingApplication {
     }
 
     @Bean
-    public CommandLineRunner importData(ReservationRepository reservationRepository,
-                                        BowlingRepository bowlingRepository,
+    public CommandLineRunner importData(BowlingRepository bowlingRepository,
                                         DiningRepository diningRepository,
                                         AirhockeyRepository airhockeyRepository,
                                         EquipmentRepository equipmentRepository,
                                         BowlingLaneRepository bowlingLaneRepository,
                                         AirHockeyTableRepository airHockeyTableRepository,
-                                        DiningTableRepository diningTableRepository){
+                                        DiningTableRepository diningTableRepository,
+                                        BeverageRepository beverageRepository){
         return (args -> {
             final List<BowlingReservation> allReservations = new ArrayList<>();
             allReservations.add(new BowlingReservation("Bollamolla", "email", LocalTime.of(12, 0), LocalTime.of(13, 0), LocalDate.now(), 4, 4,3,BOWLING));
@@ -64,8 +65,6 @@ public class XPbowlingApplication {
 
             DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", LocalTime.of(17,00), LocalTime.of(19,00), LocalDate.now(), 6, 2);
             DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", LocalTime.of(17, 0), LocalTime.of(19, 00), LocalDate.now(),  6, 4);
-            reservationdining1.setType(SPISNING.name());
-            reservationdining2.setType(SPISNING.name());
             diningRepository.save(reservationdining1);
             diningRepository.save(reservationdining2);
 
@@ -174,6 +173,13 @@ public class XPbowlingApplication {
             diningTableList.add(new DiningTable(5));
             diningTableList.add(new DiningTable(6));
             diningTableRepository.saveAll(diningTableList);
+
+            List<Beverages> beveragesList = new ArrayList<>();
+            beveragesList.add(new Beverages("Coca Cola", 20, "Oskars absolutte favorit", "https://e7.pngegg.com/pngimages/328/478/png-clipart-1-5-liter-coca-cola-bottle-world-of-coca-cola-soft-drink-papua-new-guinea-the-coca-cola-company-coca-cola-bottle-food-cola.png"));
+            beveragesList.add(new Beverages("Grøn tub", 20, "Den grønneste grønne", "https://cdne-cmh-tuborgdanmark-prod.azureedge.net/media/jtairgwb/gr%C3%B8n-pack-%C3%B8ko-mobile_new.png"));
+            beveragesList.add(new Beverages("Kronenburg 1664 blanc", 20, "Altid sommer jo", "https://w7.pngwing.com/pngs/349/841/png-transparent-kronenbourg-brewery-beer-kronenbourg-blanc-carlsberg-group-ale-1664-beer-beer-bottle-plastic-bottle-non-alcoholic-beverage.png"));
+            beverageRepository.saveAll(beveragesList);
+
 
 
         });
