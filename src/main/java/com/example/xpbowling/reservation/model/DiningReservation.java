@@ -28,7 +28,8 @@ public class DiningReservation{
     private int numberOfPeople;
     private int tableNum;
 
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private ReservationType type;
 
     public DiningReservation(String name, String email, LocalTime reservationStart, LocalTime reservationEnd, LocalDate date, int numberOfPeople, int tableNum) {
         this.name = name;
