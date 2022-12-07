@@ -1,6 +1,5 @@
 package com.example.xpbowling.login.model;
 
-import com.example.xpbowling.employee.model.EmployeeRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,8 +23,7 @@ public class User {
     @Email
     private String email;
 
-    @Enumerated(EnumType.STRING)
-    private EmployeeRole userRole;
+
 
 
 

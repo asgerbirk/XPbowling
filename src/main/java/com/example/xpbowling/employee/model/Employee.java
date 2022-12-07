@@ -6,13 +6,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
 @Entity
-
 public class Employee {
 
     @Id
@@ -20,6 +22,14 @@ public class Employee {
     @Column(nullable = false)
     private Long id;
     private String name;
-    private String email;
-    private EmployeeRole employeeRole;
+
+    private LocalDate start;
+    private LocalDate endd;
+
+
+    public Employee(String name, LocalDate start, LocalDate endd) {
+        this.name = name;
+        this.start = start;
+        this.endd = endd;
+    }
 }
