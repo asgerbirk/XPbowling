@@ -43,8 +43,8 @@ public class XPbowlingApplication {
     }
 
     @Bean
-    public CommandLineRunner importData(BowlingRepository bowlingRepository,
-    public CommandLineRunner importData(EmployeeRepository employeeRepository,
+    public CommandLineRunner importData(
+                EmployeeRepository employeeRepository,
                                         BowlingRepository bowlingRepository,
                                         DiningRepository diningRepository,
                                         AirhockeyRepository airhockeyRepository,
@@ -73,8 +73,7 @@ public class XPbowlingApplication {
 
             DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", LocalTime.of(17,00), LocalTime.of(19,00), LocalDate.now(), 6, 2);
             DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", LocalTime.of(17, 0), LocalTime.of(19, 00), LocalDate.now(),  6, 4);
-            reservationdining1.setType(SPISNING.name());
-            reservationdining2.setType(SPISNING.name());
+
             diningRepository.save(reservationdining1);
             diningRepository.save(reservationdining2);
 
