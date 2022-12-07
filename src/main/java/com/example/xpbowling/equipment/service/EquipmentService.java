@@ -25,6 +25,10 @@ public class EquipmentService {
         return equipmentRepository.findById(id).orElseThrow(() -> new IllegalStateException("no equipment with that id " + id));
     }
 
+    public Equipment create(Equipment equipment){
+        return equipmentRepository.save(equipment);
+    }
+
 
     public void deleteEquipment(Long id){
         boolean checkIfEquipmentExists = equipmentRepository.existsById(id);

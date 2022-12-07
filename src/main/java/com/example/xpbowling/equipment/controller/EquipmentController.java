@@ -31,10 +31,17 @@ public class EquipmentController {
         return ResponseEntity.ok().body(equipmentService.findById(id));
     }
 
+    @PostMapping("/createEquipment")
+    public ResponseEntity<Equipment> createEquipment(@RequestBody Equipment equipment){
+        return ResponseEntity.ok().body(equipmentService.create(equipment));
+    }
+
+
     @PutMapping("/{id}")
     ResponseEntity<Equipment> update(@PathVariable Long id, @Valid @RequestBody Equipment equipment){
         return ResponseEntity.ok().body(equipmentService.updateEquipment(id, equipment));
     }
+
 
 
     @DeleteMapping("{id}")
