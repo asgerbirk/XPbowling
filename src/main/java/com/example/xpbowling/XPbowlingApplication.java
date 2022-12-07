@@ -8,6 +8,8 @@ import com.example.xpbowling.bowlingLane.model.BowlingLane;
 import com.example.xpbowling.bowlingLane.repository.BowlingLaneRepository;
 import com.example.xpbowling.diningTable.model.DiningTable;
 import com.example.xpbowling.diningTable.repository.DiningTableRepository;
+import com.example.xpbowling.employee.model.Employee;
+import com.example.xpbowling.employee.repository.EmployeeRepository;
 import com.example.xpbowling.equipment.model.*;
 import com.example.xpbowling.equipment.repository.EquipmentRepository;
 import com.example.xpbowling.reservation.model.AirhockeyReservation;
@@ -16,15 +18,19 @@ import com.example.xpbowling.reservation.model.DiningReservation;
 import com.example.xpbowling.reservation.repository.AirhockeyRepository;
 import com.example.xpbowling.reservation.repository.BowlingRepository;
 import com.example.xpbowling.reservation.repository.DiningRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import static com.example.xpbowling.equipment.model.EquipmentType.*;
 import static com.example.xpbowling.reservation.model.ReservationType.*;
@@ -37,7 +43,9 @@ public class XPbowlingApplication {
     }
 
     @Bean
-    public CommandLineRunner importData(BowlingRepository bowlingRepository,
+    public CommandLineRunner importData(
+                EmployeeRepository employeeRepository,
+                                        BowlingRepository bowlingRepository,
                                         DiningRepository diningRepository,
                                         AirhockeyRepository airhockeyRepository,
                                         EquipmentRepository equipmentRepository,
@@ -65,6 +73,7 @@ public class XPbowlingApplication {
 
             DiningReservation reservationdining1 = new DiningReservation("madmanden", "madmail", LocalTime.of(17,00), LocalTime.of(19,00), LocalDate.now(), 6, 2);
             DiningReservation reservationdining2 = new DiningReservation("dessertmanden", "dessertmail", LocalTime.of(17, 0), LocalTime.of(19, 00), LocalDate.now(),  6, 4);
+
             diningRepository.save(reservationdining1);
             diningRepository.save(reservationdining2);
 
@@ -179,6 +188,24 @@ public class XPbowlingApplication {
             beveragesList.add(new Beverages("Grøn tub", 20, "Den grønneste grønne", "https://cdne-cmh-tuborgdanmark-prod.azureedge.net/media/jtairgwb/gr%C3%B8n-pack-%C3%B8ko-mobile_new.png"));
             beveragesList.add(new Beverages("Kronenburg 1664 blanc", 20, "Altid sommer jo", "https://w7.pngwing.com/pngs/349/841/png-transparent-kronenbourg-brewery-beer-kronenbourg-blanc-carlsberg-group-ale-1664-beer-beer-bottle-plastic-bottle-non-alcoholic-beverage.png"));
             beverageRepository.saveAll(beveragesList);
+
+
+
+
+            List<Employee> employeeList = new ArrayList<>();
+            employeeList.add(new Employee("john", LocalDate.now(), LocalDate.of(2022,12,7)));
+            employeeList.add(new Employee("john", LocalDate.now(), LocalDate.of(2022,12,8)));
+
+
+
+
+
+employeeRepository.saveAll(employeeList);
+
+
+
+
+
 
 
 
