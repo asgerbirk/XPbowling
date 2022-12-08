@@ -2,7 +2,6 @@ package com.example.xpbowling.equipment.controller;
 
 import com.example.xpbowling.equipment.model.*;
 import com.example.xpbowling.equipment.service.EquipmentService;
-import com.example.xpbowling.reservation.model.BowlingReservation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,10 +36,14 @@ public class EquipmentController {
         return ResponseEntity.ok().body(equipmentService.createEquipment(equipment));
     }
 
+
+
+
     @PutMapping("/{id}")
     ResponseEntity<Equipment> update(@PathVariable Long id, @Valid @RequestBody Equipment equipment){
         return ResponseEntity.ok().body(equipmentService.updateEquipment(id, equipment));
     }
+
 
 
     @DeleteMapping("{id}")
